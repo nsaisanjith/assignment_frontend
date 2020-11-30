@@ -22,11 +22,13 @@ class MainPage extends React.Component {
   };
   render() {
     return (
-      <div>
-        {this.state.details &&
-          this.state.details.data.map((data) => {
-            return <Grid borrower={data[0]} lender={data[1]} />;
-          })}
+      <div style={{ backgroundColor: "#F5E6CF" }}>
+        <div>
+          {this.state.details &&
+            this.state.details.data.map((data) => {
+              return <Grid borrower={data[0]} lender={data[1]} />;
+            })}
+        </div>
       </div>
     );
   }

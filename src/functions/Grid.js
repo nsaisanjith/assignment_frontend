@@ -14,15 +14,15 @@ const useStyles = makeStyles((theme) => ({
     height: "200px",
   },
   root1: {
-    width: 200,
+    width: 350,
     height: 190,
   },
 }));
 function Grid(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root} style={{ margin: 10 }}>
-      <Paper className={classes.paper}>
+    <div className={classes.root} style={{ margin: 20 }}>
+      <Paper className={classes.paper} style={{}}>
         <div>
           <div style={{ display: "inline-block" }}>
             <Card className={classes.root1} variant="outlined">
@@ -30,8 +30,17 @@ function Grid(props) {
                 <Typography variant="h5" component="h2">
                   {props.borrower.name}
                 </Typography>
+                <br />
                 <Typography variant="body2" component="p">
-                  {props.borrower.loan_amount}
+                  Loan Amount {props.borrower.loan_amount}
+                </Typography>
+                <br />
+                <Typography variant="body2" component="p">
+                  Phone Number {props.borrower.phone_no}
+                </Typography>
+                <br />
+                <Typography variant="body2" component="p">
+                  Address {props.borrower.address}
                 </Typography>
               </CardContent>
             </Card>
@@ -42,8 +51,17 @@ function Grid(props) {
                 <Typography variant="h6" component="h2">
                   {props.lender.name}
                 </Typography>
+                <br />
                 <Typography variant="body2" component="p">
-                  {props.lender.address}
+                  Phone Number {props.lender.phone_no}
+                </Typography>
+                <br />
+                <Typography variant="body2" component="p">
+                  Email {props.lender.email}
+                </Typography>
+                <br />
+                <Typography variant="body2" component="p">
+                  address {props.lender.address}
                 </Typography>
               </CardContent>
             </Card>
