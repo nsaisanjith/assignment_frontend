@@ -1,36 +1,28 @@
-import React from "react";
-import axios from "axios";
-import Grid from "../functions/Grid";
-class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getDetails();
-  }
-  state = {
-    details: null,
-  };
-  getDetails = async () => {
-    try {
-      const data = await axios.get("http://localhost:4000/getInfo");
-      await this.setState({
-        details: data,
-      });
-      console.log(this.state.details.data);
-    } catch (e) {
-      console.log("error");
-    }
-  };
-  render() {
-    return (
-      <div style={{ backgroundColor: "#F5E6CF" }}>
-        <div>
-          {this.state.details &&
-            this.state.details.data.map((data) => {
-              return <Grid borrower={data[0]} lender={data[1]} />;
-            })}
-        </div>
+import React, { useState } from "react";
+// import axios from "axios";
+import EntriesList from "./EntriesList";
+import CreateModal from "./CreateModal";
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+
+const MainPage = () => {
+  const [isCreate, setIsCreate] = useState(false);
+  return (
+    <>
+      <div class="header">
+        <h1>Lender Borrower</h1>
       </div>
-    );
-  }
+      <div class="main-content">
+        <EntriesList />
+      </div>
+      <div class="footer">
+        <p>Created by <b>Sai Sanjith Narasaraj</b></p>
+      </div>
+      <Fab className="createButton" color="primary" aria-label="add" onClick={() => setIsCreate(!isCreate)}>
+        <AddIcon />
+      </Fab>
+      <CreateModal open={isCreate} />
+    </>
+  );
 }
 export default MainPage;
