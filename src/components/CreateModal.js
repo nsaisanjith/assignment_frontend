@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -7,11 +7,18 @@ import axios from "axios";
 
 export default function CreateModal({ open, handleClose }) {
   const [data, setData] = useState({});
+  const [isOpen, setIsOpen] = useState(open);
+
+  useEffect(() => {
+    setIsOpen(open)
+  }, [open])
+
+  console.log(isOpen)
   return (
     <Modal
-      open={open}
+      open={isOpen}
       background={"white"}
-      onClose={() => {}}
+      onClose={handleClose}
       style={{ margin: "10%", padding: "2%" }}>
       <div style={{ background: "white", padding: "2%" }}>
         <h2>Create Entry</h2>
@@ -149,6 +156,10 @@ export default function CreateModal({ open, handleClose }) {
           <Grid item xs={6}>
             <TextField
               id="loan_start"
+              type="date"
+              InputLabelProps={{
+                shrink: true,
+              }}
               onChange={(ev) => {
                 setData([
                   { ...data[0], loan_start: ev.target.value },
@@ -162,6 +173,10 @@ export default function CreateModal({ open, handleClose }) {
           <Grid item xs={6}>
             <TextField
               id="loan_end"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              type="date"
               onChange={(ev) => {
                 setData([
                   { ...data[0], loan_end: ev.target.value },
@@ -173,7 +188,13 @@ export default function CreateModal({ open, handleClose }) {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="secondary">
+            <Button 
+              variant="contained" 
+              color="secondary"
+              onClick={() => {
+                handleClose(false);
+              }}
+            >
               Cancel
             </Button>
             <Button

@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { saveAs } from "file-saver";
+// import { saveAs } from "file-saver";
 export default function UserCard({ data }) {
   console.log(data);
   const history = useHistory();
@@ -18,7 +18,7 @@ export default function UserCard({ data }) {
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
-        saveAs(pdfBlob, "newPdf.pdf");
+        // saveAs(pdfBlob, "newPdf.pdf");
       });
   };
   const getItem = (name, value) => {

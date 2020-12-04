@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import DeleteIcon from '@material-ui/icons/Delete';
+
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+
+import Fab from '@material-ui/core/Fab';
 
 const ViewDetails = (props) => {
   const [list, setList] = useState([]);
@@ -156,7 +161,19 @@ const ViewDetails = (props) => {
               </Grid>
             </div>
           </Grid>
+            <Grid item xs={12}>
+                <div style={{ marginLeft: "85%"}}>
+                    <Fab color="primary" aria-label="add">
+                        <DeleteIcon />
+                    </Fab>
+                    <Fab style={{ marginLeft: "5%"}} color="primary" aria-label="add">
+                        <ArrowDownwardIcon />
+                    </Fab>
+                </div>
+            </Grid>
         </Grid>
+
+
       </div>
       <div class="footer">
         <p>

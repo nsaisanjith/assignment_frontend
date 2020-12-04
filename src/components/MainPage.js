@@ -21,7 +21,10 @@ const MainPage = () => {
       <Fab className="createButton" color="primary" aria-label="add" onClick={() => setIsCreate(!isCreate)}>
         <AddIcon />
       </Fab>
-      <CreateModal open={isCreate} />
+      <CreateModal open={isCreate} handleClose={() => {
+        console.log("close");
+        setIsCreate(false);
+      }}/>
     </>
   );
 }
