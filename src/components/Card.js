@@ -6,11 +6,21 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { useHistory } from "react-router-dom";
-
+import axios from "axios";
+import { saveAs } from "file-saver";
 export default function UserCard({ data }) {
   console.log(data);
   const history = useHistory();
+  const createAndDownloadPdf = (data) => {
+    axios
+      .post("/create-pdf", data)
+      .then(() => axios.get("fetch-pdf", { responseType: "blob" }))
+      .then((res) => {
+        const pdfBlob = new Blob([res.data], { type: "application/pdf" });
 
+        saveAs(pdfBlob, "newPdf.pdf");
+      });
+  };
   const getItem = (name, value) => {
     return (
       <>
@@ -48,6 +58,11 @@ export default function UserCard({ data }) {
           </Grid>
           <Grid item xs={4}>
             {getItem("End date", new Date(data[0].loan_end).toDateString())}
+          </Grid>
+          <Grid item xs={4}>
+            <button onClick={(data) => createAndDownloadPdf(data)}>
+              Loan Statement
+            </button>
           </Grid>
         </Grid>
       </CardContent>
