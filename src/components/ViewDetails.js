@@ -33,6 +33,8 @@ const ViewDetails = (props) => {
               <Grid container spacing={1}>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="name"
                     label="Borrower name"
                     value={props.location.state[0].name}
@@ -40,6 +42,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="phone_no"
                     label="Borrower phone number"
                     value={props.location.state[0].phone_no}
@@ -47,6 +51,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="email"
                     label="Borrower email"
                     value={props.location.state[0].email}
@@ -54,6 +60,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="address"
                     label="Borrower address"
                     value={props.location.state[0].address}
@@ -61,6 +69,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loan_amount"
                     label="Loan amount"
                     value={props.location.state[0].loan_amount}
@@ -68,6 +78,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="interestRate"
                     label="Interest rate"
                     value={props.location.state[0].interestRate}
@@ -75,6 +87,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loan_start"
                     label="Start date"
                     value={new Date(
@@ -84,6 +98,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loan_end"
                     label="End date"
                     value={new Date(
@@ -103,6 +119,8 @@ const ViewDetails = (props) => {
               <Grid container spacing={1}>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loaner_name"
                     label="Loaner name"
                     value={props.location.state[1].name}
@@ -110,6 +128,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loaner_phone_no"
                     label="Loaner phone number"
                     value={props.location.state[1].phone_no}
@@ -117,6 +137,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loaner_email"
                     label="Loaner phone number"
                     value={props.location.state[1].email}
@@ -124,6 +146,8 @@ const ViewDetails = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
+                    fullWidth
+                    contentEditable={false}
                     id="loaner_adddress"
                     label="Loaner address"
                     value={props.location.state[1].address}
